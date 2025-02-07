@@ -16,7 +16,7 @@ LIGHT_GREEN = "\033[1;38;2;144;238;144m"
 BLURPLE = '\033[1;38;5;63m'
 RESET = '\033[0m'
 os_color = None
-
+import argparse
 
 
 
@@ -42,25 +42,28 @@ elif os_s_name == "AlmaLinux" : os_color = BLUE
 elif os_s_name == "Rocky Linux": os_color =  ''
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Choose a color and a distribution.")
+    parser.add_argument("--color", type=str, choices=["RED", "ORANGE", "GREEN", "VIOLET", "BLURPLE", "BLUE", "CYAN"], required=False, help="Choose a color from: RED, ORANGE, GREEN, VIOLET, BLURPLE, BLUE, CYAN")
+    return parser.parse_args()
+args = parse_args()
+
 #Manual Colors
-if len(sys.argv) > 1:
-        if str(sys.argv[1]).upper() == "RED":
-            os_color = RED
-        elif str(sys.argv[1]).upper() == "ORANGE":
-            os_color = LIGHT_ORANGE
-        elif str(sys.argv[1]).upper() == "GREEN":
-            os_color = LIGHT_GREEN
-        elif str(sys.argv[1]).upper() == "VIOLET":
-            os_color = LIGHT_VIOLET
-        elif str(sys.argv[1]).upper() == "BLURPLE":
-            os_color = BURPLE
-        elif str(sys.argv[1]).upper() == "BLUE":
-            os_color = BLUE
-        elif str(sys.argv[1]).upper() == "CYAN":
-            os_color = CYAN
-        else : 
-        	print(f"{RED}Invalid color, try : RED, ORANGE, GREEN, VIOLET, BLURPLE, BLUE, CYAN{RESET}")
-        	sys.exit()
+if args.color : 
+    if str(args.color).upper() == "RED":
+        os_color = RED
+    elif str(args.color).upper() == "ORANGE":
+        os_color = LIGHT_ORANGE
+    elif str(args.color).upper() == "GREEN":
+        os_color = LIGHT_GREEN
+    elif str(args.color).upper() == "VIOLET":
+        os_color = LIGHT_VIOLET
+    elif str(args.color).upper() == "BLURPLE":
+        os_color = BURPLE
+    elif str(args.color).upper() == "BLUE":
+        os_color = BLUE
+    elif str(args.color).upper() == "CYAN":
+        os_color = CYAN
         
 
         
@@ -78,6 +81,7 @@ with open("/proc/meminfo") as f:
 mem_total = mem_total if mem_total is not None else 0
 mem_free = mem_free if mem_free is not None else 0
 mem_used = mem_total - mem_free
+mem_usage_percent = round((mem_used / mem_total * 100)) if mem_total > 0 else 0
 cpu_name = None
 Package_Manager = None
 
@@ -105,6 +109,7 @@ stat = os.statvfs("/")
 disk_total = stat.f_blocks * stat.f_frsize // (1024 ** 3)
 disk_free = stat.f_bavail * stat.f_frsize // (1024 ** 3)
 disk_used = disk_total - disk_free
+disk_used_percent = round((disk_used / disk_total * 100)) if disk_total > 0 else 0
 
 # Uptime
 with open("/proc/uptime") as f:
@@ -132,5 +137,5 @@ elif uptime_minutes >= 3 :
     print(f"{os_color}🕒 Uptime ->{RESET} {uptime_minutes}mins")
 else :
     print(f"{os_color}🕒 Uptime ->{RESET} {uptime_seconds}seconds")
-print(f"{os_color}🧠 Memory ->{RESET} {round(mem_used)} / {round(mem_total)} MB")
-print(f"{os_color}💾 Disk ->{RESET} {disk_used} / {disk_total} GB") 
+print(f"{os_color}🧠 Memory ->{RESET} {round(mem_used)} / {round(mem_total)} MB ({mem_usage_percent}%)")
+print(f"{os_color}💾 Disk ->{RESET} {disk_used} / {disk_total} GB ({disk_used_percent}%)")
