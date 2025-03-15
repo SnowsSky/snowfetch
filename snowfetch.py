@@ -30,7 +30,7 @@ BLURPLE = '\033[1;38;5;63m'
 RESET = '\033[0m'
 os_color = None
 import argparse
-if version <= latest_ver: 
+if version != latest_ver: 
     print(f"{LIGHT_ORANGE}Please Update Snowfetch{version} --> Snowfetch{latest_ver}{RESET}")
 
 
