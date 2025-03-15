@@ -6,6 +6,11 @@ SCRIPT_PATH="$INSTALL_DIR/$APP_NAME"
 
 echo "📂 Setting up '$APP_NAME'..."
 
+if [ -f "$SCRIPT_PATH" ]; then
+    echo "🗑️ Removing previous version of '$APP_NAME'..."
+    rm -f "$SCRIPT_PATH"
+fi
+
 mkdir -p "$INSTALL_DIR"
 
 cp "$APP_NAME.py" "$SCRIPT_PATH"
@@ -19,19 +24,18 @@ if ! grep -q "$INSTALL_DIR" <<< "$PATH"; then
     echo "🔧 Added '$INSTALL_DIR' to your PATH."
 fi
 
-if ! grep -q "alias $APP_NAME=" "$HOME/.bashrc"; then
-    echo "alias $APP_NAME='python3 $SCRIPT_PATH'" >> "$HOME/.bashrc"
-    echo "alias $APP_NAME='python3 $SCRIPT_PATH'" >> "$HOME/.zshrc"
-    echo "🔗 Created an alias: You can now run '$APP_NAME' from anywhere!"
-fi
+sed -i "/alias $APP_NAME=/d" "$HOME/.bashrc"
+sed -i "/alias $APP_NAME=/d" "$HOME/.zshrc"
 
+echo "alias $APP_NAME='python3 $SCRIPT_PATH'" >> "$HOME/.bashrc"
+echo "alias $APP_NAME='python3 $SCRIPT_PATH'" >> "$HOME/.zshrc"
+echo "🔗 Created an alias: You can now run '$APP_NAME' from anywhere!"
 
 export PATH="$INSTALL_DIR:$PATH"
 source "$HOME/.bashrc" 2>/dev/null || source "$HOME/.zshrc" 2>/dev/null
 
 echo "🎉 Installation complete! You can now use '$APP_NAME'"
 echo ""
-
 
 echo "🛑 To uninstall '$APP_NAME', run these commands:"
 echo "rm -f $HOME/.local/bin/$APP_NAME"
