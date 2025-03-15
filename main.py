@@ -1,8 +1,21 @@
 #!/usr/bin/python3
 import os
 import math
+import urllib.request
 import sys
+import json
 
+version = "1.0.1"
+
+url = "https://raw.githubusercontent.com/SnowsSky/snowfetch/main/versions.json"
+
+
+with urllib.request.urlopen(url) as response:
+    data = response.read().decode("utf-8")
+
+rep = json.loads(data)
+
+latest_ver = rep[0]["version"]
 
 #Colors 
 RED = '\033[1;38;5;124m'
@@ -17,6 +30,8 @@ BLURPLE = '\033[1;38;5;63m'
 RESET = '\033[0m'
 os_color = None
 import argparse
+if version <= latest_ver: 
+    print(f"{LIGHT_ORANGE}Please Update Snowfetch{version} --> Snowfetch{latest_ver}{RESET}")
 
 
 
@@ -31,15 +46,15 @@ os_s_name = os_release.get("NAME", "None")
 #OS COLOR
 if os_s_name == "AdOS": os_color = BLURPLE
 else : print(f"{LIGHT_ORANGE}Oh, it looks like you're not using AdonixOS ):{RESET}")
-if os_s_name == "Arch Linux": os_color = CYAN
-elif os_s_name == "Ubuntu": os_color = LIGHT_ORANGE
-elif os_s_name == "Debian": os_color = RED
-elif os_s_name == "Fedora" or os_s_name == "elementary OS" : os_color = '\033[1;38;5;32m'
-elif os_s_name == "Manjaro Linux" or os_s_name == "Linux Mint" or os_s_name == "openSUSE": os_color = LIGHT_GREEN
-elif os_s_name == "CentOS Linux": os_color = LIGHT_RED
-elif os_s_name == "Gentoo" : os_color = LIGHT_VIOLET
-elif os_s_name == "AlmaLinux" : os_color = BLUE
-elif os_s_name == "Rocky Linux": os_color =  ''
+if "Arch Linux" in os_s_name : os_color = CYAN
+elif "Ubuntu" in os_s_name : os_color = LIGHT_ORANGE
+elif "Debian" in os_s_name : os_color = RED
+elif "Fedora" in os_s_name or "elementary OS" in os_s_name : os_color = '\033[1;38;5;32m'
+elif "Manjaro Linux" in os_s_name or "Linux Mint" in os_s_name or "openSUSE" in os_s_name: os_color = LIGHT_GREEN
+elif "CentOS Linux" in os_s_name : os_color = LIGHT_RED
+elif "Gentoo" in os_s_name: os_color = LIGHT_VIOLET
+elif "AlmaLinux" in os_s_name : os_color = BLUE
+
 
 
 def parse_args():
@@ -121,7 +136,7 @@ uptime_minutes = int((uptime_seconds % 3600) // 60)
 user = os.getlogin()
 
 
-print(f"{BLURPLE}@SnowFetch 1.0.0{RESET}") 
+print(f"{BLURPLE}@SnowFetch {version}{RESET}") 
 
 
 print(f"{os_color}💻 OS ->{RESET} {os.uname().sysname}, {os_name} : \033[4;96m{os_home_url}{RESET}")
