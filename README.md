@@ -13,4 +13,4 @@ Snowfetch is a tool similar to **neofetch** or **fastfetch**, providing all the 
    chmod +x setup.sh
    ```
 3. **Run it**
-4. And that it !
+4. **And that's it !**
