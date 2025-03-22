@@ -1,7 +1,12 @@
 [
     {
-        "version": "1.0.1",
+        "version": "1.0.2",
         "status": "current"
+        
+    },
+    {
+        "version": "1.0.1",
+        "status": "previous"
     },
     {
       "version": "1.0.0",
