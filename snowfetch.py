@@ -6,7 +6,7 @@ import sys
 import json
 import argparse
 
-version ="1.1.0"
+version ="1.1.1"
 url = "https://raw.githubusercontent.com/SnowsSky/snowfetch/main/versions.json"
 
 def check_updates():
@@ -60,6 +60,7 @@ elif "CentOS Linux" in os_s_name : os_color = RED; distro = "centos"
 elif "Gentoo" in os_s_name: os_color = LIGHT_VIOLET; distro = "gentoo"
 elif "AlmaLinux" in os_s_name : os_color = BLUE; distro = "almalinux"
 elif "DarkArch Linux" in  os_s_name : os_color = RED; distro = "darkarch"
+
 else : os_color = YELLOW
 
 
@@ -161,13 +162,13 @@ infos = [
     f"{os_color}🐧 Kernel ->{RESET} {os.uname().release}",
     f"{os_color}📦 Package manager ->{RESET} {Package_Manager}",
     f"{os_color}📚 System Language ->{RESET} {lang}",
-    f"{os_color}🛠️  DE ->{RESET} {current_DE} {DE_version} ({current_WM})"
+    f"{os_color}🛠️  DE ->{RESET} {current_DE} {DE_version} ({current_WM})",
     f"{os_color}🌐 Hostname ->{RESET} {os.uname().nodename}",
-    f"{os_color}🚹 Username ->{RESET} {user}"
+    f"{os_color}🚹 Username ->{RESET} {user}",
     f"{os_color}⚙️  CPU -> {RESET} {cpu_name} | {cpu_cores} Cores",
     f"{os_color}🕒 Uptime ->{RESET} {uptime_days}d(s) {uptime_hours}h(s) {uptime_minutes}min(s) {uptime_seconds}s",
     f"{os_color}🧠 Memory ->{RESET} {round(mem_used)} / {round(mem_total)} MB ({mem_usage_percent}%) Used",
-    f"{os_color}💾 Disk ->{RESET} {disk_used} / {disk_total} GB ({disk_used_percent}%) Used"
+    f"{os_color}💾 Disk ->{RESET} {disk_used} / {disk_total} GB ({disk_used_percent}%) Used",
 
 
 ]
