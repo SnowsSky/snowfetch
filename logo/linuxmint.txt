@@ -1,0 +1,29 @@
+ccccccccccccccccccccccccccccccccccccccccccccc,...               
+cc                                           ..:cccc.           
+cc  ...      ..............................         ccc..       
+cc  ..:::::::::::::::ccccccccccccccccclllllc'. ..... . ccc.     
+cc  ..::::::::::::cccccccccccccllllllllllllllloooo..    .,cc    
+cc  ..:::::::::cccccccccccccclllllllllllllllooooooooo.    .cc.  
+cc  ..:::::::ccccc.....cccclllllllllllllllooooooooooooo.    :c. 
+cc  .....':ccccccl..  .llllllllllllllllooooooooooooooood... .cc.
+cc         ..cllll..  .lllllllll.......'ool.......,dodddd.    c,
+cc       .   ,llll..  .llllll:..        ...       . .ddddd.   'c
+       .c.   ,llll..  .llloo'.  ...c:..    ..'l,..  ..xddd.    c
+       .c.   ,llll..  .ooooo    .oooooc    .ddddd'    :ddd.    c
+       .c.   ,lllo.. ..ooooo    .oooooo    .dddddl    'ddx.    c
+       .c    ,oooo.. ..ooooo    .dddddd    .dddddo    'dxx.    c
+       .c    ,oooo.. ..ooooo    .dddddd    .dddddo    'dxx.    c
+       .c    ,oooo.. ..ooood    .dddddd    .dddddo    'dxx.    c
+       .c    ,oooo.. ..odddd.....dddddx.....dddddo....'dxx.    c
+       .c    ,oood..  .ddddddddddddddxxdxxxddddxxd::::cxxx.    c
+       .c.   ,oddd.. ..ddddddddddxxxxxxxxxxxxxxxxd::::cxxx.    c
+        c.   .dddo..  .ldddddddxxxxxxxxxxxxxxxxxd:::::xdxx.    c
+        c.   .ddddd.  ...oxdxxxxxxxxxxxxxxxxxxo::::::lddxx.    c
+        .c.  ..ddddd..    .......:::::::::::::::::::xdddxx.    c
+         :c.   .odddxxc.        .:::::::::::::::::xxddddxx.    c
+          'c.   ..xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxdddxx.    c
+           .c:.  ...:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     c
+             .c:      ...xxkxxxxxxxxxxxxxxxxxxxxxxxxxxxx...    c
+              ..cc                                             c
+                  .,cc..                                       c
+                       ..'cccccccccccccccccccccccccccccccccccccc

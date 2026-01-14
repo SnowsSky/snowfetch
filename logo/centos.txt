@@ -1,0 +1,26 @@
+                        ...d..                         
+                      ...ddddd..                       
+                    ...ddddddddd..                     
+                    ......ddo......                    
+         xdddddxd..xddddx.odo.OOOOOO..OOOOOOO0         
+         xdddxd..xddddddx.odo.OOOOOOOO..OOOOO0.        
+         xdxdxxx..ddddddx.odo.OOOOOOk..kOOOOO0.        
+         xd....xxd..xdddx.odo.OOOOO..OOO....O0.        
+         ..ddxd..ddd..xxx.odo.OOO..OOO..OOOO...        
+     ....xdddddxx..ddd..x.odo.O..OOO..OOOOOOO0..       
+    ...O.xddddddddx..dxx..ddo..OOO..OOOOOOOOO0.K..     
+  ...OOO.xxxxxxxxxxxx..xd.    OO..OOOOOOOOOOO0.KKK..   
+  .OOOOkOOOOOOOOOOOOOOO.      ..KKKKKKKKKKKKKKXKKKKK.. 
+  .OOOOOOOOOOOOOOOOOOOO.       .XKKKKKKKKKKKKKKKKKKK.. 
+    .kOO.XKKKKKKKKKKK..KK.....do..dddddddddddd.KKK..   
+     ..O.XKKKKKKKKK..KKK..xxx..ddo..dddddddddd.K..     
+       ..XKKKKKKK..KKK..K.ddd.d..odo..dddddddd..       
+         ..KKKK..KKK..KKK.ddd.ddd..ddd..dddd...        
+         XK....KKK..KKKKK.ddd.ddddd..ddd....dd         
+         XKKKKKK..KKKKKKK.ddd.ddddddd..ddddddd.        
+         XKKKKK..KKKKKKKK.ddd.dddddddd..dddddd.        
+         XKKKKKKK..KKKKKK.ddd.dddddd..dddddddd.        
+                 .  ......ddd............... ..        
+                      .xddddddxx..                     
+                        .xddxx..                       
+                          .x..                         
