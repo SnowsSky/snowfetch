@@ -1,12 +1,12 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+
 import os
-import math
 import urllib.request
 import sys
 import json
 import argparse
 
-version ="1.0.3"
+version ="1.1.0"
 url = "https://raw.githubusercontent.com/SnowsSky/snowfetch/main/versions.json"
 
 def check_updates():
@@ -48,14 +48,18 @@ os_home_url = os_release.get("HOME_URL", "None")
 os_s_name = os_release.get("NAME", "None")
 
 #OS COLOR
-if "Arch Linux" in os_s_name : os_color = CYAN
-elif "Ubuntu" in os_s_name : os_color = LIGHT_ORANGE
-elif "Debian" in os_s_name : os_color = RED
-elif "Fedora" in os_s_name or "elementary OS" in os_s_name : os_color = '\033[1;38;5;32m'
-elif "Manjaro Linux" in os_s_name or "Linux Mint" in os_s_name or "openSUSE" in os_s_name: os_color = LIGHT_GREEN
-elif "CentOS Linux" in os_s_name : os_color = RED
-elif "Gentoo" in os_s_name: os_color = LIGHT_VIOLET
-elif "AlmaLinux" in os_s_name : os_color = BLUE
+if "Arch Linux" in os_s_name : os_color = CYAN; distro = "arch"
+elif "Ubuntu" in os_s_name : os_color = LIGHT_ORANGE; distro = 'ubuntu'
+elif "Debian" in os_s_name : os_color = RED; distro = "debian"
+elif "Fedora" in os_s_name : os_color = '\033[1;38;5;32m'; distro = 'fedora'
+elif "elementary OS" in os_s_name : os_color = '\033[1;38;5;32m'; distro = 'elementaryos'
+elif "Manjaro Linux" in os_s_name : os_color = LIGHT_GREEN; distro = "Manjaro"
+elif "Linux Mint" in os_s_name : os_color = LIGHT_GREEN; distro = 'linuxmint'
+elif "openSUSE" in os_s_name: os_color = LIGHT_GREEN; distro = "opensuse"
+elif "CentOS Linux" in os_s_name : os_color = RED; distro = "centos"
+elif "Gentoo" in os_s_name: os_color = LIGHT_VIOLET; distro = "gentoo"
+elif "AlmaLinux" in os_s_name : os_color = BLUE; distro = "almalinux"
+elif "DarkArch Linux" in  os_s_name : os_color = RED; distro = "darkarch"
 else : os_color = YELLOW
 
 
@@ -146,30 +150,38 @@ current_DE = os.getenv("XDG_CURRENT_DESKTOP")
 DE_version = os.getenv("TERM_PROGRAM_VERSION")
 current_WM = os.getenv("XDG_SESSION_TYPE")
 lang = os.getenv("LANG")
-
+path = f"logo/{distro}.txt"
 #Get user
-user = os.getlogin()
+user = os.getenv("LOGNAME")
 
 print(f"{BLURPLE}❄️ @SnowFetch ❄️ {version}{RESET}") 
+infos = [
+    f"{os_color}💻 OS ->{RESET} {os.uname().sysname}, {os_name} : \033[4;96m{os_home_url}{RESET}",
+    f"{os_color}🔄 Version ->{RESET} {os.uname().version}",
+    f"{os_color}🐧 Kernel ->{RESET} {os.uname().release}",
+    f"{os_color}📦 Package manager ->{RESET} {Package_Manager}",
+    f"{os_color}📚 System Language ->{RESET} {lang}",
+    f"{os_color}🛠️  DE ->{RESET} {current_DE} {DE_version} ({current_WM})"
+    f"{os_color}🌐 Hostname ->{RESET} {os.uname().nodename}",
+    f"{os_color}🚹 Username ->{RESET} {user}"
+    f"{os_color}⚙️  CPU -> {RESET} {cpu_name} | {cpu_cores} Cores",
+    f"{os_color}🕒 Uptime ->{RESET} {uptime_days}d(s) {uptime_hours}h(s) {uptime_minutes}min(s) {uptime_seconds}s",
+    f"{os_color}🧠 Memory ->{RESET} {round(mem_used)} / {round(mem_total)} MB ({mem_usage_percent}%) Used",
+    f"{os_color}💾 Disk ->{RESET} {disk_used} / {disk_total} GB ({disk_used_percent}%) Used"
 
 
-print(f"{os_color}💻 OS ->{RESET} {os.uname().sysname}, {os_name} : \033[4;96m{os_home_url}{RESET}")
-print(f"{os_color}🔄 Version ->{RESET} {os.uname().version}")
-print(f"{os_color}🐧 Kernel ->{RESET} {os.uname().release}")
-print(f"{os_color}📦 Package manager ->{RESET} {Package_Manager}")
-print(f"{os_color}📚 System Language ->{RESET} {lang}")
-print(f"{os_color}🛠️  DE ->{RESET} {current_DE} {DE_version} ({current_WM})")
-print(f"{os_color}🌐 Hostname ->{RESET} {os.uname().nodename}")
-print(f"{os_color}🚹 Username ->{RESET} {user}")
-print(f"{os_color}⚙️  CPU -> {RESET} {cpu_name} | {cpu_cores} Cores")
-if uptime_days >= 1:
-    print(f"{os_color}🕒 Uptime ->{RESET} {uptime_days}d(s)")
-if uptime_hours >= 1:
-    print(f"{os_color}🕒 Uptime ->{RESET} {uptime_hours}h(s)")
-elif uptime_minutes >= 3 :
-    print(f"{os_color}🕒 Uptime ->{RESET} {uptime_minutes}mins")
-else :
-    print(f"{os_color}🕒 Uptime ->{RESET} {uptime_seconds}seconds")
-print(f"{os_color}🧠 Memory ->{RESET} {round(mem_used)} / {round(mem_total)} MB ({mem_usage_percent}%) Used")
-print(f"{os_color}💾 Disk ->{RESET} {disk_used} / {disk_total} GB ({disk_used_percent}%) Used")
+]
+
+if os.path.exists(path):
+    with open(path) as f:
+        logo = [line.rstrip("\n") for line in f]
+    
+    max_logo_width = max(len(line) for line in logo)
+    for i in range(max(len(logo), len(infos))):
+        logo_line = logo[i] if i < len(logo) else " " * max_logo_width
+        info_line = infos[i] if i < len(infos) else ""
+        print(f"{os_color}{logo_line}{RESET}  {info_line}")
+else:
+    print(f"{RED}Error{RESET} : {path} doesn't exist")
+
 check_updates()
