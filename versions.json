@@ -1,12 +1,20 @@
 [
     {
-        "version": "1.0.2",
+        "version": "1.0.4",
         "status": "current"
+    },
+    {
+        "version": "1.0.3",
+        "status": "previous"
+    },
+    {
+        "version": "1.0.2",
+        "status": "old"
         
     },
     {
         "version": "1.0.1",
-        "status": "previous"
+        "status": "old"
     },
     {
       "version": "1.0.0",
