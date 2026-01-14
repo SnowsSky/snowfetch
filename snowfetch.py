@@ -6,7 +6,7 @@ import sys
 import json
 import argparse
 
-version = "1.0.2"
+version ="1.0.3"
 url = "https://raw.githubusercontent.com/SnowsSky/snowfetch/main/versions.json"
 
 def check_updates():
@@ -41,15 +41,11 @@ cpu_name = None
 Package_Manager = None
 
 
-
-
 with open("/etc/os-release") as f:
     os_release = {line.split("=")[0]: line.split("=")[1].strip().strip('"') for line in f if "=" in line}
 os_name = os_release.get("PRETTY_NAME", "None") 
 os_home_url = os_release.get("HOME_URL", "None") 
 os_s_name = os_release.get("NAME", "None")
-
-
 
 #OS COLOR
 if "Arch Linux" in os_s_name : os_color = CYAN
@@ -112,11 +108,12 @@ mem_usage_percent = round((mem_used / mem_total * 100)) if mem_total > 0 else 0
 
 
 #Package manager
-list = os.listdir("/etc/")
-for thing in list:
-	if "pacman" in thing or "apt" in thing or "dnf" in thing or "zypper":
-		Package_Manager = thing.split(".conf")[0]
-
+for thing in os.listdir("/etc/"):
+    if "pacman" in thing : Package_Manager = "pacman"
+    if "apt" in thing : Package_Manager = "apt"
+    if "dnf" in thing : Package_Manager = "dnf"
+    if "yum" in thing : Package_Manager = "yum"
+    if "zypper" in thing : Package_Manager = "zypper"
 
 #CPU 
 with open("/proc/cpuinfo") as f:
@@ -127,7 +124,7 @@ with open("/proc/cpuinfo") as f:
 			value = value.strip() 
 		if key == "model name":
 			cpu_name = " ".join(value.split())
-		if key == "processor" : 
+		if key == "cpu cores" : 
 			cpu_cores = "".join(value.split())
 
 #Disk
@@ -144,9 +141,14 @@ uptime_hours = int(uptime_seconds // 3600)
 uptime_days = int(uptime_seconds // 86400)
 uptime_minutes = int((uptime_seconds % 3600) // 60)
 
+#Get ENV variables
+current_DE = os.getenv("XDG_CURRENT_DESKTOP")
+DE_version = os.getenv("TERM_PROGRAM_VERSION")
+current_WM = os.getenv("XDG_SESSION_TYPE")
+lang = os.getenv("LANG")
+
 #Get user
 user = os.getlogin()
-
 
 print(f"{BLURPLE}❄️ @SnowFetch ❄️ {version}{RESET}") 
 
@@ -155,6 +157,8 @@ print(f"{os_color}💻 OS ->{RESET} {os.uname().sysname}, {os_name} : \033[4;96m
 print(f"{os_color}🔄 Version ->{RESET} {os.uname().version}")
 print(f"{os_color}🐧 Kernel ->{RESET} {os.uname().release}")
 print(f"{os_color}📦 Package manager ->{RESET} {Package_Manager}")
+print(f"{os_color}📚 System Language ->{RESET} {lang}")
+print(f"{os_color}🛠️  DE ->{RESET} {current_DE} {DE_version} ({current_WM})")
 print(f"{os_color}🌐 Hostname ->{RESET} {os.uname().nodename}")
 print(f"{os_color}🚹 Username ->{RESET} {user}")
 print(f"{os_color}⚙️  CPU -> {RESET} {cpu_name} | {cpu_cores} Cores")
