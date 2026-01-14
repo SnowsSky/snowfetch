@@ -1,8 +1,7 @@
-# =========================
-# Configuration
-# =========================
+#config
 PROJECT = snowfetch
 SRC = snowfetch.py
+LOGO_DIR = logo
 
 PREFIX = /usr/local
 BINDIR = $(PREFIX)/bin
@@ -10,6 +9,7 @@ LIBDIR = $(PREFIX)/lib/$(PROJECT)
 
 BIN = $(BINDIR)/$(PROJECT)
 LIB = $(LIBDIR)/$(SRC)
+LIB_LOGO = $(LIBDIR)/$(LOGO_DIR)
 
 # Detect Python
 PYTHON := $(shell command -v python3 2>/dev/null || command -v python 2>/dev/null)
@@ -17,7 +17,7 @@ PYTHON := $(shell command -v python3 2>/dev/null || command -v python 2>/dev/nul
 # Rules
 .PHONY: help run install uninstall clean
 
-#Help
+# Help
 help:
 	@echo "Snowfetch – Makefile"
 	@echo ""
@@ -27,6 +27,7 @@ help:
 	@echo "  make uninstall  → delete snowfetch"
 	@echo "  make clean      → Clean"
 
+# Run
 run:
 	$(PYTHON) $(SRC)
 
@@ -35,12 +36,18 @@ install:
 	@echo "Installing $(PROJECT)..."
 	install -d $(LIBDIR)
 	install -m644 $(SRC) $(LIB)
+	
+	# Copy logo directory
+	install -d $(LIB_LOGO)
+	cp -r $(LOGO_DIR)/* $(LIB_LOGO)/
+
 	@echo '#!/usr/bin/env sh' > $(BIN)
 	@echo 'exec $(PYTHON) $(LIB) "$$@"' >> $(BIN)
 	chmod +x $(BIN)
 	@echo "Installed ! -->"
 	@echo "  $(LIB)"
 	@echo "  $(BIN)"
+	@echo "  Logos copied to $(LIB_LOGO)"
 
 # Delete
 uninstall:
