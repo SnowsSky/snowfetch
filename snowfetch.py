@@ -6,7 +6,7 @@ import sys
 import json
 import argparse
 
-version ="1.1.1"
+version ="1.1.2"
 url = "https://raw.githubusercontent.com/SnowsSky/snowfetch/main/versions.json"
 
 def check_updates():
@@ -151,7 +151,7 @@ current_DE = os.getenv("XDG_CURRENT_DESKTOP")
 DE_version = os.getenv("TERM_PROGRAM_VERSION")
 current_WM = os.getenv("XDG_SESSION_TYPE")
 lang = os.getenv("LANG")
-path = f"logo/{distro}.txt"
+path = f"/usr/local/lib/snowfetch/logo/{distro}.txt"
 #Get user
 user = os.getenv("LOGNAME")
 
