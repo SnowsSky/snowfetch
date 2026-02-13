@@ -6,22 +6,8 @@ import sys
 import json
 import argparse
 
-version ="1.1.2"
-url = "https://raw.githubusercontent.com/SnowsSky/snowfetch/main/versions.json"
+version ="1.2"
 
-def check_updates():
-    try :
-        with urllib.request.urlopen(url) as response:
-            data = response.read().decode("utf-8")
-
-        rep = json.loads(data)
-
-        latest_ver = rep[0]["version"]
-
-        if version != latest_ver: 
-            print(f"{LIGHT_ORANGE}A new version of Snowfetch is avalaible !{RESET} ({RED}{version}{RESET} -> {LIGHT_GREEN}{latest_ver}{RESET})")
-    except Exception as e:
-        print(f"{RED}An error occured while checking for updates: {e}{RESET}")
 
 #Colors  & vars
 RED = '\033[1;38;5;124m'
@@ -61,13 +47,15 @@ elif "Gentoo" in os_s_name: os_color = LIGHT_VIOLET; distro = "gentoo"
 elif "AlmaLinux" in os_s_name : os_color = BLUE; distro = "almalinux"
 elif "DarkArch Linux" in  os_s_name : os_color = RED; distro = "darkarch"
 
-else : os_color = YELLOW
+else : os_color = YELLOW; distro = "ubuntu"
 
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Choose a color and a distribution.")
+    parser.add_argument("--version", action='store_true', required=False, help="Get the version of snowfetch")
     parser.add_argument("--color", type=str, required=False, help=f"Choose a color from: {RED}RED{RESET}, {LIGHT_ORANGE}ORANGE{RESET}, {GREEN}GREEN{RESET}, {LIGHT_VIOLET}VIOLET{RESET}, {BLURPLE}BLURPLE{RESET}, {BLUE}BLUE{RESET}, {CYAN}CYAN{RESET}, {YELLOW}YELLOW{RESET}.")
+    parser.add_argument("--distro", type=str, required=False, help = f"Choose a supported linux distribution.")
     return parser.parse_args()
 args = parse_args()
 
@@ -93,7 +81,11 @@ if args.color :
     elif str(args.color).upper() == "YELLOW":
         os_color = YELLOW
         
+if args.distro :
+    distro = args.distro
 
+if args.version : 
+    print(f"Snowfetch@{version}")
         
 
 #Memory
@@ -155,7 +147,7 @@ path = f"/usr/local/lib/snowfetch/logo/{distro}.txt"
 #Get user
 user = os.getenv("LOGNAME")
 
-print(f"{BLURPLE}❄️ @SnowFetch ❄️ {version}{RESET}") 
+
 infos = [
     f"{os_color}💻 OS ->{RESET} {os.uname().sysname}, {os_name} : \033[4;96m{os_home_url}{RESET}",
     f"{os_color}🔄 Version ->{RESET} {os.uname().version}",
@@ -184,5 +176,6 @@ if os.path.exists(path):
         print(f"{os_color}{logo_line}{RESET}  {info_line}")
 else:
     print(f"{RED}Error{RESET} : {path} doesn't exist")
+    path = "./logo"
 
-check_updates()
+

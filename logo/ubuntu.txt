@@ -1,31 +1,18 @@
-                   ......lOkkkOkOOOOl.......                  
-              ....'kOkkkkkkkkkkkkkkkkkkkkkk.....              
-          .....kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk...            
-        ....OkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkO...         
-      ....OkkkkkkkkkkkkkkkkkkkkkkkkkkkkOOxOkOkkkkkkO...       
-    ....Okkkkkkkkkkkkkkkkkkkkkkkkkkkkk.......kkkkkkkOO...     
-    ..kOkkkkkkkkkkkkkkkkkkkkkkkkkkkkk...    .'kkkkkkkkOk...   
-   ..kkkkkkkkkkkkkkkkkkk............OO.......OkkkkkkkkkkO..   
-  .'kOkkkkkkkkkkkkkO'kkO.          ..Okk...kOkkkkkkkkkkkkk'   
-  .kkkkkkkkkkkkkkk....ckO..         ....,l'.kkkkkkkkkkkkkkO.. 
-..OOkkkkkkkkkkkk,..  ...OOOOkkkOOkkkk'      .,kkkkkkkkkkkkkO. 
-.Okkkkkkkkkkkkk..    .kkkkkkkkkkkkkkkkOx..  ...OkkkkkkkkkkkkO.
-.kkkkkkkkkkkOk...  ..OkkkkkkkkkkkkkkkkkkO.    ..kkkkkkkkkkkkk.
-kkkkkkkOOkkkkO.    .Okkkkkkkkkkkkkkkkkkkkk..  ..kkkkkkkkkkkkkx
-OOkkkOk.. ...kO..  kkkkkkkkkkkkkkkkkkkkkkkO.    .kkkkkkkkkkkkO
-Okkkkk      ..OO.  OOkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-kkkkkO...   ..Ox.  OkkkkkkkkkkkkkkkkkkkkkkO......Okkkkkkkkkkkk
-OOkkkkOO....kko..  okkkkkkkkkkkkkkkkkkkkkko.    ,kkkkkkkkkkkkO
-,OkkkkkkkkkkOO.    .OkkkkkkkkkkkkkkkkkkkkO..  ..Okkkkkkkkkkkk,
-.OkkkkkkkkkkkOO..    'OkkkkkkkkkkkkkkkkO'.    .Okkkkkkkkkkkkk.
-.'kkkkkkkkkkkkkk.    ..'OkkkkkkkkkkkkO'.    ..Okkkkkkkkkkkkk. 
- .OkkkkkkkkkkkkkO'.  ..kkd.cOOOOOOc.........'OkkkkkkkkkkkkkO. 
-  .kkkkkkkkkkkkkkkO...kO:          ...kOOOOOkkkkkkkkkkkkkOO.. 
-  ..kkkkkkkkkkkkkkkkkkO...         .OO'.    .OkkkkkkkkkkOO.   
-    .:kOkkkkkkkkkkkkkkkkkOO:......cOO,      .,kkkkkkkkOk:..   
-      .OOkOkkkkkkkkkkkkkkkkkkkkkkkkOkk..    .xkkkkkkkkO..     
-      ...kkkOkkkkkkkkkkkkkkkkkkkkkkkkkO.....kkkkkkkOO....     
-        ...OOkkkkkkkkkkkkkkkkkkkkkkkkkkkkkOkkkkkOkO....       
-          ...:OkkkOkkkkkkkkkkkkkkkkkkkkkkkkkkkkO,....         
-            .....OOkkkkkkkkkkkkkkkkkkkkkkkkkO.....            
-                 .....OkkkkkkkkkkkkkkkkO......     
+                          ./+o+-      
+                  yyyyy- -yyyyyy+     
+               ://+//////-yyyyyyo     
+           .++ .:/++++++/-.+sss/`     
+         .:++o:  /++++++++/:--:/-     
+        o:+o+:++.`..```.-/oo+++++/    
+       .:+o:+o/.          `+sssoo+/   
+  .++/+:+oo+o:`             /sssooo.  
+ /+++//+:`oo+o               /::--:.  
+ \+/+o+++`o++o               ++////.  
+  .++.o+++oo+:`             /dddhhh.  
+       .+.o+oo:.          `oddhhhh+   
+        \+.++o+o``-````.:ohdhhhhh+    
+         `:o+++ `ohhhhhhhhyo++os:     
+           .o:`.syhhhhhhh/.oo++o`     
+               /osyyyyyyo++ooo+++/    
+                   ````` +oo+++o\:    
+                          `oo++.      
