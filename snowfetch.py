@@ -6,7 +6,7 @@ import sys
 import json
 import argparse
 
-version ="1.2"
+version ="1.2.1"
 
 
 #Colors  & vars
@@ -34,7 +34,8 @@ os_home_url = os_release.get("HOME_URL", "None")
 os_s_name = os_release.get("NAME", "None")
 
 #OS COLOR
-if "Arch Linux" in os_s_name : os_color = CYAN; distro = "arch"
+if "DarkArch Linux" in os_s_name : os_color=RED; distro = "darkarch"
+elif "Arch Linux" in os_s_name : os_color = CYAN; distro = "arch"
 elif "Ubuntu" in os_s_name : os_color = LIGHT_ORANGE; distro = 'ubuntu'
 elif "Debian" in os_s_name : os_color = RED; distro = "debian"
 elif "Fedora" in os_s_name : os_color = '\033[1;38;5;32m'; distro = 'fedora'
@@ -45,7 +46,7 @@ elif "openSUSE" in os_s_name: os_color = LIGHT_GREEN; distro = "opensuse"
 elif "CentOS Linux" in os_s_name : os_color = RED; distro = "centos"
 elif "Gentoo" in os_s_name: os_color = LIGHT_VIOLET; distro = "gentoo"
 elif "AlmaLinux" in os_s_name : os_color = BLUE; distro = "almalinux"
-elif "DarkArch Linux" in  os_s_name : os_color = RED; distro = "darkarch"
+
 
 else : os_color = YELLOW; distro = "ubuntu"
 
